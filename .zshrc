@@ -42,3 +42,4 @@ unset _rc
 
 # --- Starship
 eval "$(starship init zsh)"
+eval "$(direnv hook zsh)"
