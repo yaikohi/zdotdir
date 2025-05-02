@@ -4,23 +4,49 @@
 #
 
 # single character aliases - be sparing!
-alias ls=eza
-alias _=sudo
-alias l=ls
 alias g=git
 
 # mask built-ins with better defaults
 alias vi=nvim
 alias vim=nvim
 
-# more ways to ls
-alias ll='ls -lh'
-alias la='ls -lAh'
-alias ldot='ls -ld .*'
+# eza: 'ls' alternative; since 'exa' is deprecated.
+alias l='eza'
+alias ls="eza -1"
+alias ll="eza -1a"
+alias la="eza -a"
+alias lr="eza -aR --git-ignore"
+alias lt="eza -aT --git-ignore"
+
+#
+# --- UTILITIES 
+alias src='source $HOME/.zshrc'
+alias supdg="sudo apt-get update && sudo apt-get upgrade"
+
+#
+# --- KUBERNETES / TALOSCTL
+alias k="kubectl"
+alias tl="talosctl"
+
+#
+# --- Git
+alias gitf="git add . && git commit --amend --no-edit && git push -f"
+#
+# --- SurrealDB
+alias srql="curl --request POST \
+		--header 'Accept: application/json' \
+		--header 'NS: test' \
+		--header 'DB: test' \
+		--user 'root:root' \
+		--data '${DATA}' \
+		http://localhost:8000/sql"
+
+# --- Golang 
+alias setupgo="~/scripts/setupgo.sh"
 
 # fix common typos
-alias quit='exit'
-alias cd..='cd ..'
+alias quit="exit"
+alias cd..="cd .."
 
 # tar
 alias tarls="tar -tvf"
