@@ -40,6 +40,13 @@ unset _rc
 # To customize prompt, run `p10k configure` or edit .p10k.zsh.
 # [[ ! -f ${ZDOTDIR:-$HOME}/.p10k.zsh ]] || source ${ZDOTDIR:-$HOME}/.p10k.zsh
 
+# fnm
+FNM_PATH="/home/ykhi/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/ykhi/.local/share/fnm:$PATH"
+  eval "$(fnm env --use-on-cd)"
+fi
 # --- Starship
 eval "$(starship init zsh)"
+# --- direnv
 eval "$(direnv hook zsh)"
