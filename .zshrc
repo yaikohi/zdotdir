@@ -12,7 +12,9 @@
 
 # Lazy-load (autoload) Zsh function files from a directory.
 ZFUNCDIR=${ZDOTDIR:-$HOME}/.zfunctions
+ZCOMPDIR=${ZDOTDIR:-$HOME}/.zcompletions
 fpath=($ZFUNCDIR $fpath)
+fpath=($ZCOMPDIR $fpath)
 autoload -Uz $ZFUNCDIR/*(.:t)
 
 # Set any zstyles you might use for configuration.
