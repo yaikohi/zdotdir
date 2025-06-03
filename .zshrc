@@ -59,3 +59,10 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # bun completions
 [ -s "/home/ykhi/.bun/_bun" ] && source "/home/ykhi/.bun/_bun"
+
+# fnm
+FNM_PATH="/home/ykhi/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/home/ykhi/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
