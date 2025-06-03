@@ -52,7 +52,6 @@ fi
 eval "$(starship init zsh)"
 # --- direnv
 eval "$(direnv hook zsh)"
-. "$HOME/.local/share/../bin/env"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
