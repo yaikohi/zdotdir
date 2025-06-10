@@ -68,3 +68,5 @@ if [ -d "$FNM_PATH" ]; then
 fi
 # GoLang Path
 export PATH=$PATH:/usr/local/go/bin
+
+. "$HOME/.local/share/../bin/env"
