@@ -66,3 +66,5 @@ if [ -d "$FNM_PATH" ]; then
   export PATH="/home/ykhi/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
+# GoLang Path
+export PATH=$PATH:/usr/local/go/bin
