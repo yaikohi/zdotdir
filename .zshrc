@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/ykhi/.config/zsh/completions:"* ]]; then export FPATH="/home/ykhi/.config/zsh/completions:$FPATH"; fi
 #!/bin/zsh
 #
 # .zshrc - Zsh file loaded on interactive shell sessions.
@@ -70,3 +72,12 @@ fi
 export PATH=$PATH:/usr/local/go/bin
 
 . "$HOME/.local/share/../bin/env"
+
+# pnpm
+export PNPM_HOME="/home/ykhi/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+. "/home/ykhi/.deno/env"
