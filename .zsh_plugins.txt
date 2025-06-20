@@ -10,6 +10,7 @@ aloxaf/fzf-tab  # Remove if you don't use fzf
 
 # Completion styles
 belak/zsh-utils path:completion/functions kind:autoload post:compstyle_zshzoo_setup
+ohmyzsh/ohmyzsh path:plugins/kubectl
 
 # Keybindings
 belak/zsh-utils path:editor
@@ -19,6 +20,7 @@ belak/zsh-utils path:history
 
 # Prompt
 # romkatv/powerlevel10k
+ohmyzsh/ohmyzsh path:plugins/kubectx
 
 # Utilities
 zshzoo/macos conditional:is-macos

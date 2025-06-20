@@ -71,6 +71,9 @@ fi
 # GoLang Path
 export PATH=$PATH:/usr/local/go/bin
 
+source <(kubectl completion zsh)
+
+
 . "$HOME/.local/share/../bin/env"
 
 # pnpm
@@ -81,3 +84,4 @@ case ":$PATH:" in
 esac
 # pnpm end
 . "/home/ykhi/.deno/env"
+source <(kubectl completion zsh)
