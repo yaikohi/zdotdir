@@ -85,3 +85,4 @@ esac
 # pnpm end
 . "/home/ykhi/.deno/env"
 source <(kubectl completion zsh)
+export PATH=$HOME/.local/bin:$PATH
