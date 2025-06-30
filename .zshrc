@@ -86,3 +86,4 @@ esac
 . "/home/ykhi/.deno/env"
 source <(kubectl completion zsh)
 export PATH=$HOME/.local/bin:$PATH
+eval "$(/home/erikbeem/.local/bin/mise activate zsh)"
