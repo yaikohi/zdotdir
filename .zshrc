@@ -62,6 +62,11 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # bun completions
 [ -s "/home/ykhi/.bun/_bun" ] && source "/home/ykhi/.bun/_bun"
 
+# --- Auto-start the SSH-agent !
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  eval "$(ssh-agent -s)"
+fi
+
 # fnm
 FNM_PATH="/home/ykhi/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
