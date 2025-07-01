@@ -3,6 +3,9 @@
 # .aliases - Set whatever shell aliases you want.
 #
 
+# --- Reboot into UEFI
+alias uefi="sudo systemctl reboot --firmware-setup"
+
 # single character aliases - be sparing!
 alias g=git
 
