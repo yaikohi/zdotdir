@@ -62,6 +62,11 @@ export SDKMAN_DIR="$HOME/.sdkman"
 # bun completions
 [ -s "/home/ykhi/.bun/_bun" ] && source "/home/ykhi/.bun/_bun"
 
+# --- Auto-start the SSH-agent !
+if [ -z "$SSH_AUTH_SOCK" ]; then
+  eval "$(ssh-agent -s)"
+fi
+
 # fnm
 FNM_PATH="/home/ykhi/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
@@ -83,7 +88,11 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
 . "/home/ykhi/.deno/env"
+
 source <(kubectl completion zsh)
+
 export PATH=$HOME/.local/bin:$PATH
+
 eval "$(/home/erikbeem/.local/bin/mise activate zsh)"
