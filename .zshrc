@@ -96,3 +96,8 @@ source <(kubectl completion zsh)
 export PATH=$HOME/.local/bin:$PATH
 
 eval "$(mise activate zsh)"
+
+# ---- ENABLES USAGE OF ZED IN WSL ----
+export ZED_ALLOW_EMULATED_GPU=1
+alias zed="WAYLAND_DISPLAY='' zed"
+
