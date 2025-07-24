@@ -5,13 +5,6 @@ if [[ ":$FPATH:" != *":/home/ykhi/.config/zsh/completions:"* ]]; then export FPA
 # .zshrc - Zsh file loaded on interactive shell sessions.
 #
 
-# --- If Powerlevel10k: Enable Powerlevel10k instant prompt. Should stay close to the top of .zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-# fi
-
 # Lazy-load (autoload) Zsh function files from a directory.
 ZFUNCDIR=${ZDOTDIR:-$HOME}/.zfunctions
 ZCOMPDIR=${ZDOTDIR:-$HOME}/.zcompletions
@@ -40,14 +33,10 @@ for _rc in ${ZDOTDIR:-$HOME}/.zshrc.d/*.zsh; do
 done
 unset _rc
 
-# --- If Powerlevel10k uncomment:
-# To customize prompt, run `p10k configure` or edit .p10k.zsh.
-# [[ ! -f ${ZDOTDIR:-$HOME}/.p10k.zsh ]] || source ${ZDOTDIR:-$HOME}/.p10k.zsh
-
 # fnm
-FNM_PATH="/home/ykhi/.local/share/fnm"
+FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/ykhi/.local/share/fnm:$PATH"
+  export PATH="$HOME/.local/share/fnm:$PATH"
   eval "$(fnm env --use-on-cd)"
 fi
 # --- Starship
@@ -60,36 +49,27 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # bun completions
-[ -s "/home/ykhi/.bun/_bun" ] && source "/home/ykhi/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "/home/ykhi/.bun/_bun"
 
 # --- Auto-start the SSH-agent !
 if [ -z "$SSH_AUTH_SOCK" ]; then
   eval "$(ssh-agent -s)"
 fi
 
-# fnm
-FNM_PATH="/home/ykhi/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="/home/ykhi/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-fi
 # GoLang Path
 export PATH=$PATH:/usr/local/go/bin
 
 source <(kubectl completion zsh)
 
-
-. "$HOME/.local/share/../bin/env"
-
 # pnpm
-export PNPM_HOME="/home/ykhi/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
-. "/home/ykhi/.deno/env"
+. "$HOME/.deno/env"
 
 source <(kubectl completion zsh)
 
