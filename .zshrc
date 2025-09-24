@@ -1,5 +1,4 @@
-# Add deno completions to search path
-if [[ ":$FPATH:" != *":/home/ykhi/.config/zsh/completions:"* ]]; then export FPATH="/home/ykhi/.config/zsh/completions:$FPATH"; fi
+if [[ ":$FPATH:" != *":$HOME/.config/zsh/completions:"* ]]; then export FPATH="$HOME/.config/zsh/completions:$FPATH"; fi
 #!/bin/zsh
 #
 # .zshrc - Zsh file loaded on interactive shell sessions.
@@ -33,8 +32,12 @@ for _rc in ${ZDOTDIR:-$HOME}/.zshrc.d/*.zsh; do
 done
 unset _rc
 
+# --- If Powerlevel10k uncomment:
+# To customize prompt, run `p10k configure` or edit .p10k.zsh.
+# [[ ! -f ${ZDOTDIR:-$HOME}/.p10k.zsh ]] || source ${ZDOTDIR:-$HOME}/.p10k.zsh
+
 # fnm
-FNM_PATH="$HOME/.local/share/fnm"
+FNM_PATH="/$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="$HOME/.local/share/fnm:$PATH"
   eval "$(fnm env --use-on-cd)"
@@ -49,27 +52,37 @@ export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # bun completions
-[ -s "$HOME/.bun/_bun" ] && source "/home/ykhi/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # --- Auto-start the SSH-agent !
 if [ -z "$SSH_AUTH_SOCK" ]; then
   eval "$(ssh-agent -s)"
 fi
 
+# fnm
+FNM_PATH="$HOME/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$HOME/.local/share/fnm:$PATH"
+  eval "`fnm env`"
+fi
 # GoLang Path
 export PATH=$PATH:/usr/local/go/bin
 
 source <(kubectl completion zsh)
 
+
+. "$HOME/.local/share/../bin/env"
+
 # pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
+export PNPM_HOME="/home/erikbeem/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
 
-. "$HOME/.deno/env"
+# --- Deno
+export PATH="$HOME/.deno/bin:$PATH"
 
 source <(kubectl completion zsh)
 
