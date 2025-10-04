@@ -22,7 +22,7 @@ alias lr="eza -aR --git-ignore"
 alias lt="eza -aT --git-ignore"
 
 #
-# --- UTILITIES 
+# --- UTILITIES
 alias src='source $HOME/.zshrc'
 alias supdg="sudo apt-get update && sudo apt-get upgrade"
 
@@ -44,7 +44,7 @@ alias srql="curl --request POST \
 		--data '${DATA}' \
 		http://localhost:8000/sql"
 
-# --- Golang 
+# --- Golang
 alias setupgo="~/scripts/setupgo.sh"
 
 # fix common typos
@@ -74,3 +74,7 @@ alias zshrc="cd $ZDOTDIR && nvim .zshrc"
 alias zshrc='${EDITOR:-vim} "${ZDOTDIR:-$HOME}"/.zshrc'
 alias zbench='for i in {1..10}; do /usr/bin/time zsh -lic exit; done'
 alias zdot='cd ${ZDOTDIR:-~}'
+
+# --- connections
+alias connectykhi="ssh ubuntu@$VPS_YKHI"
+alias fixterminfo="infocmp -x xterm-ghostty | ssh ubuntu@$VPS_YKHI -- tic -x -"

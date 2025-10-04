@@ -11,3 +11,5 @@ export PATH="$PATH:$PNPM_HOME"
 # Add JBang to environment
 alias j!=jbang
 export PATH="$HOME/.jbang/bin:$PATH"
+# VPS addresses
+export VPS_YKHI="162.19.253.154"
