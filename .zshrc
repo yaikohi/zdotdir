@@ -62,7 +62,7 @@ export PATH=$PATH:/usr/local/go/bin
 source <(kubectl completion zsh)
 
 # pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
+export PNPM_HOME="/home/ykhi/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -76,3 +76,6 @@ source <(kubectl completion zsh)
 export PATH=$HOME/.local/bin:$PATH
 
 eval "$(mise activate zsh)"
+
+# Gemini CLI
+export PATH="/home/ykhi/.cache/.bun/bin:$PATH"
