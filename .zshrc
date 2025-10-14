@@ -62,7 +62,7 @@ export PATH=$PATH:/usr/local/go/bin
 source <(kubectl completion zsh)
 
 # pnpm
-export PNPM_HOME="$HOME/.local/share/pnpm"
+export PNPM_HOME="/home/ykhi/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
