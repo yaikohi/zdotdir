@@ -79,3 +79,6 @@ eval "$(mise activate zsh)"
 
 # Gemini CLI
 export PATH="/home/ykhi/.cache/.bun/bin:$PATH"
+
+# LM Studio CLI
+export PATH="/home/ykhi/.lmstudio/bin:$PATH"
