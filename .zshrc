@@ -33,22 +33,22 @@ for _rc in ${ZDOTDIR:-$HOME}/.zshrc.d/*.zsh; do
 done
 unset _rc
 
-# fnm
+# fnm ---
 FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="$HOME/.local/share/fnm:$PATH"
   eval "$(fnm env --use-on-cd)"
 fi
-# --- Starship
+# Starship ---
 eval "$(starship init zsh)"
-# --- direnv
+# direnv ---
 eval "$(direnv hook zsh)"
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# bun completions
+# bun --- completions
 [ -s "$HOME/.bun/_bun" ] && source "/home/ykhi/.bun/_bun"
 
 # --- Auto-start the SSH-agent !
@@ -56,29 +56,37 @@ if [ -z "$SSH_AUTH_SOCK" ]; then
   eval "$(ssh-agent -s)"
 fi
 
-# GoLang Path
+# Golang --- Path
 export PATH=$PATH:/usr/local/go/bin
 
-source <(kubectl completion zsh)
-
-# pnpm
+# pnpm ---
 export PNPM_HOME="/home/ykhi/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
-# pnpm end
+# pnpm --- end
 
+# deno ---
 . "$HOME/.deno/env"
 
+# kubectl --- completions
 source <(kubectl completion zsh)
 
 export PATH=$HOME/.local/bin:$PATH
-
+# mise ---
 eval "$(mise activate zsh)"
 
-# Gemini CLI
+# Gemini CLI ---
 export PATH="/home/ykhi/.cache/.bun/bin:$PATH"
 
-# LM Studio CLI
+# LM Studio CLI ---
 export PATH="/home/ykhi/.lmstudio/bin:$PATH"
+
+# asdf --- version manager configuration
+# . "$HOME/.asdf/asdf.sh"
+export ASDF_DATA_DIR="$HOME/.asdf"
+export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
+# asdf --- completions
+fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
+autoload -Uz compinit && compinit
