@@ -83,6 +83,9 @@ export PATH="/home/ykhi/.cache/.bun/bin:$PATH"
 # LM Studio CLI ---
 export PATH="/home/ykhi/.lmstudio/bin:$PATH"
 
+# Zig --- https://ziglang.org/download/
+export PATH="$PATH:/opt/zig"
+
 # asdf --- version manager configuration
 # . "$HOME/.asdf/asdf.sh"
 export ASDF_DATA_DIR="$HOME/.asdf"
@@ -90,3 +93,7 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 # asdf --- completions
 fpath=(${ASDF_DATA_DIR:-$HOME/.asdf}/completions $fpath)
 autoload -Uz compinit && compinit
+
+# zoxide --- https://github.com/ajeetdsouza/zoxide
+# eval "$(zoxide init posix --hook prompt)"
+eval "$(zoxide init zsh | sed 's/\\cd/builtin cd/g')"
